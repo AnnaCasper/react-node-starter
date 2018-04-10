@@ -42,15 +42,30 @@
 	}
 }
 
+
 /**
  * Logo
  */
 
- .oa-header > a img {
- 	height: 46px;
+.oa-header a.logo {
+	background-repeat: no-repeat;
+	background-size: cover;
  	position: relative;
  	z-index: 2;
- }
+
+ 	@include queryWidth(min, 501px) {
+		width: 198px;
+		height: 46px;
+		background-image: url('/assets/images/OA-logo-2x.png');
+ 	}
+
+ 	@include queryWidth(max, 500px) {
+ 		background-image: url('/assets/images/logo.png');
+ 		width: 44px;
+ 		height: 40px;
+ 	}
+}
+
 
 /**
  * Nav Container
@@ -61,18 +76,6 @@
 	position: relative;
 	z-index: 2;
 	box-sizing: border-box;
-
-	@include queryWidth(max, 900px) {
-		width: 100%;
-		position: absolute;
-		right: 0;
-		top: $headerHeight;
-		height: calc(100vh - #{$headerHeight});
-		flex-direction: column;
-	 	align-items: flex-end;
-	 	padding: 32px;
-	 	pointer-events: none;
-	}
 }
 
 /**
@@ -80,82 +83,19 @@
  */
 
 .oa-header nav a {
-	text-transform: uppercase;
-	font-size: 0.9em;
-	font-weight: 600;
-	-webkit-font-smoothing: antialiased;
-	color: $lightestGray;
-	transition: color 0.15s ease-out, opacity 0.15s ease-out, transform 0.15s $curve 0.15s;
 
-	&.active,
-	&:hover {
-		color: #FFF;
-	}
-
-	&:last-child {
-		color: $lightGreen;
+	img {
+		width: 18px;
+		height: 18px;
 	}
 
 	& + a {
-		@include queryWidth(min, 901px) {
-			margin-left: 32px;
-		}
-		@include queryWidth(max, 900px) {
-			margin-top: 36px;
-		}
+		margin-left: 20px;
 	}
 
-	@include queryWidth(max, 900px) {
-		opacity: 0;
-		transform: translateX(8px);
-	}
-}
-
-/**
- * Menu click target
- */
-
-.oa-header .oa-menu-target {
-	width: 24px;
-	height: 24px;
-	background-repeat: no-repeat;
-	background-position: center center;
-	position: relative;
-	z-index: 2;
-
-	@include queryWidth(min, 901px) {
-		display: none;
-	}
-}
-
-/**
- * Active menu state
- */
-
-@include queryWidth(max, 900px) {
-	.oa-header.oa-menu-active {
-		position:fixed;
-		top: 0;
-		left: 0;
-
-		// translate content down because header is now position fixed
-		& + * {
-			transform: translateY($headerHeight);
-		}
-
-		&:before {
-			transform: translateY(0);
-			background-color: $darkestGray;
-		}
-
-		nav {
-			pointer-events: all;
-		}
-
-		nav a {
-			opacity: 1;
-			transform: translateX(0);
-			transition-delay: 0.2s;
+	@include queryWidth(max, 500px) {
+		& + a {
+			margin-left: 12px;
 		}
 	}
 }
