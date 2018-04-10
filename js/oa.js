@@ -37,7 +37,7 @@ $(document).ready(function() {
 
 		$.ajax({
 		  type: 'POST',
-		  url: 'http://localhost:3000/subscribe',
+		  url: 'http://18.216.73.172:3000/subscribe',
 		  data: {
 		     email: value
 		  },
