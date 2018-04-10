@@ -1,0 +1,459 @@
+@import 'variables/colors';
+@import 'variables/misc';
+@import 'partials/base';
+@import 'partials/header';
+
+
+.oa-landing .oa-header {
+	background-color: $gray;
+}
+
+.oa-landing .oa-hero {
+	min-height: calc(100vh - #{$headerHeight});
+	display: flex;
+
+	background-image: url('../assets/images/OA Hero.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+
+	.oa-hero-content {
+		color: #FFF;
+		display: flex;
+		flex-direction: column;
+	}
+
+	h1, p {
+		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+	}
+
+	button {
+		position: relative;
+		border-radius: 8px;
+		text-transform: uppercase;
+		border: 3px solid #FFF;
+		background-color: rgba(0,0,0,0.35);
+		box-sizing: border-box;
+		padding: 0 24px;
+		color: #FFF;
+		-webkit-font-smoothing: antialiased;
+		cursor: pointer;
+	}
+
+	a button {
+		background-color: #FFF;
+		color: #000;
+	}
+
+	@include queryWidth(max, 768px) {
+		flex-direction: column;
+		justify-content: center;
+
+		.oa-hero-content {
+			padding: 24px 48px;
+			justify-content: center;
+		}
+
+		.oa-hero-content-image {
+			display: none;
+		}
+
+		.oa-hero-content-buttons {
+			width: 212px;
+			margin: 64px auto 0 auto;
+			position: relative;
+			z-index: 3;
+		}
+
+		h1 {
+			font-size: 2.8em;
+			margin-bottom: 32px;
+		}
+
+		p {
+			font-size: 1.1em;
+		}
+
+		button {
+			width: 212px;
+			height: 46px;
+			font-size: 1.1em;
+		}
+
+		a + button {
+			margin-top: 24px;
+		}
+	}
+
+	@include queryWidth(min, 769px) {
+		align-items: center;
+		padding: 0 12%;
+
+		.oa-hero-content {
+			max-width: 700px;
+		}
+
+		.oa-hero-content-image {
+			min-height: 340px;
+			background-image: url('../assets/images/macbook-1.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		h1 {
+			font-size: 5em;
+			margin-bottom: 18px;
+		}
+
+		p {
+			font-size: 1.5em;
+			line-height: 1.3em;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.oa-hero-content-buttons {
+			margin-top: 64px;
+		}
+
+		button {
+			width: 240px;
+			height: 54px;
+			font-size: 1.3em;
+		}
+
+		a + button {
+			margin-left: 24px;
+		}
+	}
+}
+
+.oa-landing .oa-learn-more {
+	display: flex;
+	flex-direction: column;
+	background-color: $darkerGray;
+	position: relative;
+	color: #FFF;
+	-webkit-font-smoothing: antialiased;
+	background-image: url('../assets/images/macbook.png');
+	background-repeat: no-repeat;
+
+	&:after {
+		content: '';
+		background-image: linear-gradient(to bottom, transparent, $gray);
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		right: 0;
+		height: 240px;
+		z-index: 1;
+	}
+
+	.oa-learn-more-content {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	.oa-learn-more-content p {
+		line-height: 1.4em;
+	}
+
+	@include queryWidth(min, 1001px) {
+		min-height: 30vw;
+		background-size: 65vw auto;
+		background-position: -10vw center;
+
+		p {
+			font-size: 1.5em;
+			max-width: 500px;
+		}
+
+		.oa-learn-more-content {
+			padding: 0 8%;
+			flex: 1 0 auto;
+		}
+	}
+
+	@include queryWidth(max, 1000px) {
+		min-height: 40vh;
+		background-size: 80vw auto;
+		background-position: -18vw center;
+
+		p {
+			font-size: 1.2em;
+			max-width: 400px;
+		}
+
+		.oa-learn-more-content {
+			padding: 0 32px;
+			flex: 1 0 auto;
+		}
+	}
+
+	@include queryWidth(max, 768px) {
+		background-size: 150vw;
+		background-position: -20vw -40vw;
+		justify-content: flex-end;
+		min-height: 60vh;
+
+		p {
+			max-width: none;
+			position: relative;
+			top: 32px;
+			font-size: 1.1em;
+		}
+
+		.oa-learn-more-content {
+			background-color: $gray;
+			justify-content: center;
+			flex: 0 0 auto;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			box-sizing: border-box;
+			padding: 24px 48px;
+		}
+
+		.oa-learn-more-content:before {
+			content: '';
+			background-image: linear-gradient(to top, $gray, transparent);
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: -118px;
+			height: 120px;
+		}
+
+		&:after {
+			display: none;
+		}
+	}
+
+	@include queryWidth(max, 500px) {
+		background-size: 164vw;
+		background-position: -32vw -40vw;
+		min-height: 70vh;
+
+		.oa-learn-more-content {
+			padding: 18px 24px;
+		}
+	}
+}
+
+.oa-landing .oa-mailing-list {
+	min-height: 44vh;
+	background-color: $gray;
+	display: flex;
+	justify-content: center;
+
+	.oa-mailing-list-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: #FFF;
+		position: relative;
+	}
+
+	p {
+		line-height: 1.4em;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.input-container {
+		width: 500px;
+		display: flex;
+
+		@include queryWidth(max, 768px) {
+			width: 100%;
+		}
+	}
+
+	input {
+		height: 46px;
+		padding: 0 24px;
+		box-sizing: border-box;
+		border-top-left-radius: 8px;
+		border-bottom-left-radius: 8px;
+		color: $gray;
+		flex: 1 0 auto;
+	}
+
+	button {
+		flex: 0 1 100px;
+		height: 46px;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+		box-sizing: border-box;
+		text-transform: uppercase;
+		font-size: 0.9em;
+		background-color: $gold;
+		cursor: pointer;
+	}
+
+	span.error {
+		color: #F00;
+		height: 18px;
+		font-size: 0.8em;
+	}
+
+	@include queryWidth(min, 769px) {
+		font-size: 1.25em;
+
+		.input-container {
+			margin: 48px 0;
+		}
+	}
+
+	@include queryWidth(max, 768px) {
+		font-size: 1.1em;
+		padding: 0 32px;
+
+		.input-container {
+			margin: 24px 0;
+		}
+	}
+
+	@include queryWidth(max, 600px) {
+		padding: 0 24px;
+		text-align: center;
+	}
+}
+
+.oa-landing .oa-activities {
+	position: relative;
+	background-color: #FFF;
+}
+
+.oa-landing .oa-activity {
+	width: 100%;
+	display: flex;
+
+	@include queryWidth(max, 768px) {
+		flex-direction: column;
+	}
+}
+
+.oa-landing .oa-activity-image {
+	min-width: 50%;
+	flex: 0 0 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+
+	@include queryWidth(min, 769px) {
+		min-height: 35vw;
+	}
+
+	@include queryWidth(max, 768px) {
+		min-height: 40vw;
+	}
+
+	@include queryWidth(max, 600px) {
+		min-height: 70vw;
+	}
+}
+
+.oa-landing .oa-activity-content {
+	flex: 0 0 50%;
+	max-width: 50%;
+	text-align: right;
+	padding: 48px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	position: relative;
+
+	h2 {
+		color: $gray;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 2.6em;
+		margin-bottom: 12px;
+	}
+
+	p {
+		font-weight: 300;
+		-webkit-font-smoothing: antialiased;
+		color: $gray;
+		font-size: 1.3em;
+	}
+
+	@include queryWidth(max, 1000px) {
+		font-size: 80%;
+	}
+
+	@include queryWidth(max, 768px) {
+		justify-content: flex-start;
+		text-align: left;
+		width: 60%;
+		max-width: none;
+		padding: 48px 32px;
+	}
+
+	@include queryWidth(max, 600px) {
+		width: 75%;
+
+		h2 {
+			font-size: 2.2em;
+		}
+	}
+}
+
+.oa-landing .oa-activity + .oa-activity .oa-activity-content:before {
+	content: '';
+	width: 80%;
+	height: 2px;
+	background-color: #EAEAEA;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: -1px;
+
+	@include queryWidth(max, 768px) {
+		display: none;
+	}
+}
+
+.oa-landing footer {
+	background-color: $green;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #FFF;
+	-webkit-font-smoothing: antialiased;
+
+	@include queryWidth(min, 769px) {
+		height: 100px;
+		font-size: 1.35em;
+	}
+
+	@include queryWidth(max, 768px) {
+		height: 80px;
+		font-size: 1.1em;
+	}
+}
+
+
+
+
+
+/**
+ * IE 11 specific fixes
+ */
+
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+	.oa-landing .oa-hero .oa-hero-content {
+		position: relative;
+		top: calc(50vh - 40px);
+		transform: translateY(-50%);
+	}
+
+	.oa-landing .oa-learn-more .oa-learn-more-content {
+		margin-top: 48px;
+	}
+}
