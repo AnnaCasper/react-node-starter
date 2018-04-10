@@ -329,7 +329,7 @@ ul, li {
     max-width: 500px;
   }
   .oa-landing .oa-learn-more .oa-learn-more-content {
-    padding: 0 8%;
+    padding: 48px 8% 0 8%;
     flex: 1 0 auto;
   }
 }
@@ -344,7 +344,7 @@ ul, li {
     max-width: 400px;
   }
   .oa-landing .oa-learn-more .oa-learn-more-content {
-    padding: 0 32px;
+    padding: 48px 32px 0 32px;
     flex: 1 0 auto;
   }
 }
