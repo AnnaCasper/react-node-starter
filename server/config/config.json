@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "Anna",
+    "password": null,
+    "database": "oa-dev",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "Anna",
+    "password": null,
+    "database": "oa-test",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  }
+}
