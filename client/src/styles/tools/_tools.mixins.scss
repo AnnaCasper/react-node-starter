@@ -1,0 +1,120 @@
+// Global SCSS Mixins
+
+// Vertical align anything (works in IE9+) (http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/)
+// Usage: @include vertical-align-parent;
+@mixin vertical-align-parent {
+    @include transform-style(preserve-3d);
+  }
+  // Usage: @include vertical-align;
+  @mixin vertical-align {
+    @include transform(translateY(-50%));
+    position: relative;
+    top: 50%;
+  }
+  
+  // Truncate long strings of text with an ellipsis
+  //
+  // Usage: supply a width as paramter:
+  // ex: @include truncate-ellipsis(8rem);
+  // ex: @include truncate-ellipsis(100%);
+  //
+  // Note: this element must be a block element 
+  // ex: (display: inline-block || display: block)
+  @mixin truncate-ellipsis($width) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: $width;
+    white-space: nowrap;
+  }
+  
+  // Vertical Rhythm
+  
+  @mixin font-size($n, $mt, $mb) {
+    font-size: $base-font-size * $n;
+    
+    @if($n < 1) {
+      $n: 1;
+    }
+    line-height: floor($n) * $base-line-height;
+    margin-top: $mt * $base-line-height;
+    margin-bottom: $mb * $base-line-height;
+  }
+  
+  // Aspect Ratio
+  // @include aspect-ratio(16, 9);
+  @mixin aspect-ratio-parent($width, $height) {
+    position: relative;
+  
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: ($height / $width) * 100%;
+    }
+  }
+  
+  @mixin aspect-ratio-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  @mixin clearfix {
+    &::after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+  }
+  
+  
+  
+  // Adjust design to mobile width
+  //
+  // Usage: @include mobile:
+  $mobile-width: 575px;
+  @mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+      @content;
+    }
+  }
+  
+  // Adjust design to tablet width
+  //
+  // Usage: @include tablet:
+  $tablet-width: 768px;
+  @mixin tablet {
+    @media (min-width: #{$mobile-width + 1px}) and (max-width: #{$tablet-width}) {
+      @content;
+    }
+  }
+  
+  // Adjust design to desktop width
+  //
+  // Usage: @include desktop:
+  @mixin desktop {
+    @media (min-width: #{$tablet-width + 1px}) {
+      @content;
+    }
+  }
+  
+  @mixin desktop-small {
+    @media (min-width: #{$tablet-width + 1px}) and (max-width: 1138px) {
+      @content;
+    }
+  }
+  
+  @mixin desktop-large {
+    @media (min-width: 1139px) {
+      @content;
+    }
+  }
+
+  @mixin placeholder {
+    ::-webkit-input-placeholder {@content}
+    :-moz-placeholder           {@content}
+    ::-moz-placeholder          {@content}
+    :-ms-input-placeholder      {@content}  
+  }

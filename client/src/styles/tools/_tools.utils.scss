@@ -1,0 +1,29 @@
+.d-xs-none {
+    @include mobile {
+        visibility: hidden;
+    }
+}
+
+.d-sm-none {
+    @extend .d-xs-none;
+    @include tablet {
+        visibility: hidden;
+    }
+}
+
+.d-md-none {
+    @extend .d-xs-none;
+    @extend .d-sm-none;
+    @include desktop-small {
+        visibility: hidden;
+    }
+}
+
+.d-lg-none {
+    @extend .d-xs-none;
+    @extend .d-sm-none;
+    @extend .d-md-none;
+    @include desktop-large {
+        visibility: hidden;
+    }
+}
