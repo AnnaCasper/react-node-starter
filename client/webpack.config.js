@@ -48,8 +48,7 @@ module.exports = {
             path: './.env'
         }),
         new CopyWebpackPlugin([
-            { from: 'src/assets', to: 'assets' },
-            { from: 'src/json', to: 'json' },
+            { from: 'src/assets', to: 'assets' }
         ]),
         new webpack.ProvidePlugin({
             'Promise': 'es6-promise',
