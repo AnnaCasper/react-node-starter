@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';  
 
-import user from './userReducer';
+import test from './testReducer';
 
 const rootReducer = combineReducers({  
     // short hand property names
-    user
+    test
   })
   
 export default rootReducer;

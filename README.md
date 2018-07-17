@@ -1,4 +1,4 @@
-# Outside Analytics - oa-front-app
+# react-node-starter
 
 ## Technologies
 - [SCSS/SASS](http://sass-lang.com/)
@@ -50,6 +50,8 @@
 1. `git clone` this repo
 2. cd into root
 3. run `npm install` (only needed the first time to download Node modules)
+4. run `createdb db-dev` (only needed the first time to create postgres DB - postgres must be installed)
+5. run `sequelize db:migrate` (only needed the first time to run migration files and create/seed database)
 4. run `npm run start:dev` (start server)
 4. cd into client
 5. run `npm install` (only needed the first time to download Node modules)

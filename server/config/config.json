@@ -2,15 +2,23 @@
   "development": {
     "username": "Anna",
     "password": null,
-    "database": "oa-dev",
+    "database": "db-dev",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
   },
-  "test": {
+  "staging": {
     "username": "Anna",
     "password": null,
-    "database": "oa-test",
+    "database": "db-staging",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "Anna",
+    "password": null,
+    "database": "db-production",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"

@@ -1,14 +1,4 @@
-@import "generic/generic.reset";
-@import "generic/generic.normalize";
-@import "generic/generic.box-sizing";
-@import "tools/tools.mixins";
-
-@import "settings/settings.colors";
-@import "settings/settings.forms";
-@import "settings/settings.global";
-@import "settings/settings.typography";
-
-@import "tools/tools.utils";
-
-//Import only bootstrap grid 
-//@import 'generic/generic.grid';
+@import "config/normalize";
+@import "config/mixins";
+@import "config/colors";
+@import "config/global";

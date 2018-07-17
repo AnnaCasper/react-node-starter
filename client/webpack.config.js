@@ -14,10 +14,15 @@ module.exports = {
     module: {
         loaders: [
             { 
-                test: /\.js$/,
+				test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader'
-            },
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: ['babel-loader', 'eslint-loader']
+			},
             {
                 test: /\.(scss|css)$/,
                 loader: ['style-loader', 'css-loader',  'resolve-url-loader', 'sass-loader']
@@ -36,7 +41,14 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         host: 'localhost',
-        port: 3000
+        port: 3000,
+        proxy: {
+            '/api': {
+              target: 'http://localhost:8000',
+              secure: false,
+              changeOrigin: true,
+            }
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({ 
@@ -53,6 +65,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             'Promise': 'es6-promise',
             'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-        }),
+		}),
+		new webpack.EnvironmentPlugin({
+            "NODE_ENV": 'development'
+        })
     ],
 };  
