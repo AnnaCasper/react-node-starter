@@ -17,7 +17,7 @@ class Home extends Component {
     return (
     <div>
 		Welcome to React-Node-Starter!
-		<Test />
+		{/* <Test /> */}
     </div>
     )
   }
