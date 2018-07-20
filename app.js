@@ -15,9 +15,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Require our routes into the application.
 require('./server/routes')(app);
 
-// Setup a default catch-all route that sends back a welcome message in JSON format.
-app.get('*', (req, res) => res.status(200).send({
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../client/dist')));
+
+// Answer API requests.
+app.get('/api', (req, res) => res.status(200).send({
   message: 'Welcome to the React-Node-Starter Api!',
 }));
+
+// All remaining requests return the React app, so it can handle routing.
+app.get('*', function(request, response) {
+    response.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+  });
 
 module.exports = app;
