@@ -5,7 +5,7 @@ import { withRouter, hashHistory } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
 // Import Global Styles
-import style from './styles/main.scss';
+// import style from './styles/main.scss';
 
 //Import Pages
 import Home from './pages/Home/Home';

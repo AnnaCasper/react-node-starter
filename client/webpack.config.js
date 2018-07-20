@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotenvPlugin = require('webpack-dotenv-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -16,26 +17,37 @@ module.exports = {
             { 
 				test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
-                loader: 'babel-loader'
+                loader: ['babel-loader']
 			},
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: ['babel-loader', 'eslint-loader']
-			},
+			// {
+			// 	test: /\.js$/,
+			// 	exclude: /node_modules/,
+			// 	use: ['babel-loader', 'eslint-loader']
+			// },
             {
-                test: /\.(scss|css)$/,
-                loader: ['style-loader', 'css-loader',  'resolve-url-loader', 'sass-loader']
-              },
-              {
-                test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-                use: {
-                  loader: "url-loader",
-                  options: {
-                    limit: 25000,
-                  },
-                },
-              },
+				test: /\.(sass|scss|css)$/,
+				loader: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader', 'url-loader']
+			},
+
+			{
+				test: /\.jpe?g$|\.gif$|\.ico$|\.png$|\.svg$/,
+				use: 'file-loader?name=[name].[ext]?[hash]'
+			},
+		
+			{
+				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+			},
+			
+			{
+				test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: 'file-loader'
+			},
+
+			{
+				test: /\.otf(\?.*)?$/,
+				use: 'file-loader?name=/fonts/[name].  [ext]&mimetype=application/font-otf'
+			}
         ]
     },
     devServer: {
