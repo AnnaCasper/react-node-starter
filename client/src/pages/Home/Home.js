@@ -13,6 +13,7 @@ class Home extends Component {
   }
 
   render () {
+	console.log(process.env.NODE_ENV, '======')
     return (
     <div>
 		Welcome to React-Node-Starter!

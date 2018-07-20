@@ -5,7 +5,6 @@
  * Base URL for site
  */
 
-console.log(process.env.NODE_ENV, '======')
 const env = process.env.NODE_ENV || 'development';
 const urlOptions = {
 	development: 'http://localhost:3000',
