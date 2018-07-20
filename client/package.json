@@ -4,7 +4,8 @@
   "description": "react-node-starter",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+	"start": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "Anna Casper",
   "license": "ISC",
