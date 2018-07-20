@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 require('./server/routes')(app);
 
 // Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, 'client/dist')));
+app.use(express.static(path.resolve('client/dist')));
 
 // Answer API requests.
 app.get('/api', (req, res) => res.status(200).send({
@@ -26,7 +26,7 @@ app.get('/api', (req, res) => res.status(200).send({
 
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
-    response.sendFile(path.resolve(__dirname, 'client/dist', 'index.html'));
+    response.sendFile(path.resolve('client/dist', 'index.html'));
   });
 
 module.exports = app;
