@@ -2,7 +2,6 @@
 
 ## Technologies
 - [SCSS/SASS](http://sass-lang.com/)
-- [Semantic UI React](https://react.semantic-ui.com)
 - [ReactJS](https://reactjs.org/)
 - [Webpack](https://webpack.js.org/)
 - [Redux](https://redux.js.org/docs/basics/UsageWithReact.html)
