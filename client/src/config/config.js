@@ -9,7 +9,7 @@ const env = process.env.NODE_ENV || 'development';
 const urlOptions = {
 	development: 'http://localhost:3000',
 	// staging: '',
-	// production: ''
+	production: 'https://achroma-staging.herokuapp.com/'
 }
 
 export const siteBaseUrl = urlOptions[env];
