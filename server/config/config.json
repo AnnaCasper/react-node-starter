@@ -7,20 +7,7 @@
     "port": 5432,
     "dialect": "postgres"
   },
-  "staging": {
-    "username": "Anna",
-    "password": null,
-    "database": "db-staging",
-    "host": "127.0.0.1",
-    "port": 5432,
-    "dialect": "postgres"
-  },
   "production": {
-    "username": "Anna",
-    "password": null,
-    "database": "db-production",
-    "host": "127.0.0.1",
-    "port": 5432,
-    "dialect": "postgres"
+	"use_env_variable": "DATABASE_URL"
   }
 }
