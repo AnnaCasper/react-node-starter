@@ -3,6 +3,7 @@
 ## Technologies
 - [SCSS/SASS](http://sass-lang.com/)
 - [ReactJS](https://reactjs.org/)
+- [ESLint](https://eslint.org/)
 - [Webpack](https://webpack.js.org/)
 - [Redux](https://redux.js.org/docs/basics/UsageWithReact.html)
 - [Node.js](https://nodejs.org/en/)

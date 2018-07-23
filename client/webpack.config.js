@@ -13,20 +13,20 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        loaders: [
+		loaders: [
             { 
 				test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
                 loader: ['babel-loader']
 			},
-			// {
-			// 	test: /\.js$/,
-			// 	exclude: /node_modules/,
-			// 	use: ['babel-loader', 'eslint-loader']
-			// },
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: ['babel-loader', 'eslint-loader']
+			},
             {
 				test: /\.(sass|scss|css)$/,
-				loader: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader', 'url-loader']
+				loader: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader']
 			},
 
 			{
